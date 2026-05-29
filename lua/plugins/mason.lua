@@ -1,0 +1,37 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+--
+-- -- Customize Mason
+--
+-- ---@type LazySpec
+-- return {
+--   -- use mason-tool-installer for automatically installing Mason packages
+--   {
+--     "WhoIsSethDaniel/mason-tool-installer.nvim",
+--     -- overrides `require("mason-tool-installer").setup(...)`
+--     opts = {
+--       -- Make sure to use the names found in `:Mason`
+--       ensure_installed = {
+--         -- install language servers
+--         "lua-language-server",
+--
+--         -- install formatters
+--         "stylua",
+--
+--         -- install debuggers
+--         "debugpy",
+--
+--         -- install any other package
+--         "tree-sitter-cli",
+--       },
+--     },
+--   },
+-- }
+
+-- return {
+--   "WhoIsSethDaniel/mason-tool-installer.nvim",
+--   opts = function(_, opts)
+--     opts.ensure_installed = vim.tbl_filter(function(pkg)
+--       return pkg ~= "emmet_ls"
+--     end, opts.ensure_installed or {})
+--   end,
+-- }

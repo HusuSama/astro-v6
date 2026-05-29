@@ -1,0 +1,21 @@
+return {
+  -- "nvim-neotest/neotest",
+  -- opts = function(_, opts)
+  --   return require("astrocore").extend_tbl(opts, {
+  --     config = function()
+  --       local neotest_golang_opts = {
+  --         runner = "gotestsum",
+  --         log_level = vim.log.levels.DEBUG,
+  --         go_test_args = {
+  --           "-v",
+  --         },
+  --       }
+  --       require("neotest").setup {
+  --         adapters = {
+  --           require "neotest-golang"(neotest_golang_opts),
+  --         },
+  --       }
+  --     end,
+  --   })
+  -- end,
+}

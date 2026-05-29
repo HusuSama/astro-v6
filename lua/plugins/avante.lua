@@ -1,0 +1,38 @@
+return {
+  -- "yetone/avante.nvim",
+  -- opts = function(_, opts)
+  --   return require("astrocore").extend_tbl(opts, {
+  --     input = { provider = "snacks" },
+  --     instructions_file = "AGENTS.md",
+  --     acp_providers = {
+  --       ["opencode"] = {
+  --         command = "opencode",
+  --         args = { "acp" },
+  --       },
+  --     },
+  --     provider = "opencode",
+  --     providers = {
+  --       qianwen = {
+  --         __inherited_from = "openai",
+  --         api_key_name = "DASHSCOPE_API_KEY",
+  --         endpoint = "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  --         model = "qwen-coder-plus-latest",
+  --       },
+  --       moonshotai = {
+  --         __inherited_from = "openai",
+  --         api_key_name = "MOONSHOT_API_KEY",
+  --         endpoint = "https://api.moonshot.cn/v1",
+  --         model = "kimi-k2.5",
+  --         extra_request_body = {
+  --           -- thinking 开启，这里值使用 1，关闭，使用 0.6
+  --           temperature = 0.6,
+  --           thinking = { type = "disabled" },
+  --         },
+  --       },
+  --     },
+  --     windows = {
+  --       width = 40,
+  --     },
+  --   })
+  -- end,
+}

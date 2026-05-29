@@ -1,0 +1,39 @@
+return {
+  -- {
+  --   "shellRaining/hlchunk.nvim",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   opts = function()
+  --     require("hlchunk").setup {
+  --       chunk = {
+  --         enable = true,
+  --         style = {
+  --           { fg = "#ffffff" },
+  --           { fg = "#fa5252" },
+  --         },
+  --         textobject = "ic",
+  --         duration = 300,
+  --         delay = 100,
+  --       },
+  --       line_num = {
+  --         enable = true,
+  --         style = "#ffffff",
+  --       },
+  --       indent = {
+  --         enable = true,
+  --       },
+  --     }
+  --   end,
+  -- },
+  -- {
+  --   "folke/snacks.nvim",
+  --   opts = {
+  --     indent = {
+  --       enabled = false,
+  --       chunk = {
+  --         enabled = false,
+  --         char = {},
+  --       },
+  --     },
+  --   },
+  -- },
+}

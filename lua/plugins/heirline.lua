@@ -1,0 +1,25 @@
+return {
+  -- {
+  --   "AstroNvim/astroui",
+  --   opts = {
+  --     icons = {
+  --       VimIcon = "",
+  --     },
+  --   },
+  -- },
+  -- {
+  --   "rebelot/heirline.nvim",
+  --   opts = function(_, opts)
+  --     local status = require "astroui.status"
+  --     opts.statusline[1] = status.component.mode {
+  --       mode_text = { icon = { kind = "VimIcon", padding = { left = 1, right = 1 } } },
+  --       surround = {
+  --         separator = { "", "" },
+  --       },
+  --     }
+  --     opts.statusline[2] = status.component.builder {
+  --       { provider = "" },
+  --     }
+  --   end,
+  -- },
+}

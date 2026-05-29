@@ -1,0 +1,24 @@
+return {
+  -- "olimorris/codecompanion.nvim",
+  -- opts = {
+  --   adapters = {
+  --     acp = {
+  --       opencode = function()
+  --         return require("codecompanion.adapters").extend("opencode", {
+  --           command = {
+  --             default = {
+  --               "opencode",
+  --               "acp",
+  --             },
+  --           },
+  --         })
+  --       end,
+  --     },
+  --   },
+  --   interactions = {
+  --     chat = {
+  --       adapter = "opencode",
+  --     },
+  --   },
+  -- },
+}
