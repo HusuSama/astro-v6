@@ -50,7 +50,7 @@ return {
         -- tabstop = 4,
         -- shiftwidth = 4,
         clipboard = "unnamedplus",
-        linespace = 3,
+        -- linespace = 3,
         ignorecase = true,
         autoindent = true,
         iskeyword = keywords "-",
