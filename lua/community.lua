@@ -9,9 +9,6 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
 
-  -- { import = "astrocommunity/recipes/heirline-nvchad-statusline" },
-  -- { import = "astrocommunity/recipes/cache-colorscheme" },
-
   -- themes
   { import = "astrocommunity.colorscheme.everforest" },
   { import = "astrocommunity.colorscheme.catppuccin" },
@@ -42,7 +39,6 @@ return {
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.go" },
-  -- { import = "astrocommunity.pack.sql" },
   -- { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.thrift" },

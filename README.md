@@ -1,34 +1,59 @@
-# AstroNvim Template
+# Neovim Configuration
 
-**NOTE:** This is for AstroNvim v5+
+AstroNvim v6 configuration for Neovim 0.12+.
 
-A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+## Structure
 
-## 🛠️ Installation
-
-#### Make a backup of your current nvim and shared folder
-
-```shell
-mv ~/.config/nvim ~/.config/nvim.bak
-mv ~/.local/share/nvim ~/.local/share/nvim.bak
-mv ~/.local/state/nvim ~/.local/state/nvim.bak
-mv ~/.cache/nvim ~/.cache/nvim.bak
+```text
+lua/
+├── community.lua       AstroCommunity imports
+├── lazy_setup.lua      Lazy.nvim and AstroNvim setup
+├── plugins/
+│   ├── core/           Options, mappings, autocmds, highlights
+│   ├── completion/     Blink and LuaSnip
+│   ├── lsp/            Language servers and language tooling
+│   ├── debug/          DAP
+│   ├── format/         Formatters
+│   ├── test/           Test runners
+│   ├── treesitter/     Parsers and text objects
+│   ├── editor/         Editing utilities
+│   ├── search/         Telescope, Snacks, and search tools
+│   ├── explorer/       File explorers
+│   ├── terminal/       Terminal integration
+│   ├── database/       Database tools
+│   ├── runner/         Task runners
+│   ├── git/            Git integrations
+│   ├── ui/             Interface and themes
+│   ├── ai/             AI integrations
+│   └── misc/           Small standalone integrations
+└── utils.lua           Shared Lua helpers
 ```
 
-#### Create a new user repository from this template
+Plugin categories are imported explicitly from `lua/lazy_setup.lua`. Keep disabled or
+reference configurations outside `lua/plugins/` so Lazy does not load them accidentally.
 
-Press the "Use this template" button above to create a new repository to store your user configuration.
+## Project-local LSP
 
-You can also just clone this repository directly if you do not want to track your user configuration in GitHub.
+Project-local configuration is enabled with Neovim's trusted `exrc` mechanism. In a
+project root, create:
 
-#### Clone the repository
-
-```shell
-git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
+```text
+.nvim.lua
+.nvim/lsp/<server_name>.lua
 ```
 
-#### Start Neovim
+Use `.nvim.lua` to add the project runtime directory:
+
+```lua
+local source = debug.getinfo(1, "S").source:sub(2)
+vim.opt.runtimepath:append(vim.fs.dirname(source) .. "/.nvim")
+```
+
+Review the file and run `:trust` before allowing Neovim to execute it.
+
+## Validation
 
 ```shell
-nvim
+nvim -i NONE --headless '+qa'
+nvim -i NONE --headless '+lua vim.cmd("Lazy load all")' '+qa'
 ```
