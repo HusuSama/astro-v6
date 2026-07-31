@@ -25,10 +25,10 @@ return {
           },
         },
         vtsls = {
-          root_dir = function()
-            local git_root = get_git_root()
-            if git_root ~= nil then return git_root end
-          end,
+          -- root_dir = function()
+          --   local git_root = get_git_root()
+          --   if git_root ~= nil then return git_root end
+          -- end,
           settings = {
             vtsls = {
               autoUseWorkspaceTsdk = true,
