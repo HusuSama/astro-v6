@@ -12,21 +12,6 @@ end
 --- print(require("nvim-treesitter.ts_utils").get_node_at_cursor():type())
 --- print(require("nvim-treesitter.ts_utils").get_node_at_cursor():parent():type())
 
-local function need_show_complete()
-  local row, column = unpack(vim.api.nvim_win_get_cursor(0))
-  local success, node = pcall(vim.treesitter.get_node, {
-    pos = { row - 1, math.max(0, column - 1) },
-    ignore_injections = false,
-  })
-  local signs = { "comment", "string" }
-  if success and node then
-    for _, value in ipairs(signs) do
-      if node:type():find(value) then return false end
-    end
-  end
-  return true
-end
-
 return {
   "saghen/blink.cmp",
   -- enabled = false,
@@ -150,19 +135,6 @@ return {
       ---@type blink.cmp.SnippetsConfig
       snippets = {
         preset = "luasnip",
-        active = function(filter)
-          local snippet = require "luasnip"
-          local blink = require "blink.cmp"
-          if snippet.in_snippet() and blink.is_visible() then
-            return true
-          else
-            if not snippet.in_snippet() and vim.fn.mode() == "n" then
-              snippet.unlink_current()
-              vim.snippet.stop()
-            end
-            return false
-          end
-        end,
       },
       cmdline = {
         enabled = true,
