@@ -51,6 +51,26 @@ vim.opt.runtimepath:append(vim.fs.dirname(source) .. "/.nvim")
 
 Review the file and run `:trust` before allowing Neovim to execute it.
 
+LSP completion snippets are disabled by default. Enable them for every configured
+server in the project:
+
+```lua
+vim.g.lsp_snippet_support = true
+```
+
+Or enable only selected servers:
+
+```lua
+vim.g.lsp_snippet_support = {
+  gopls = true,
+  jdtls = true,
+}
+```
+
+The setting is read when each LSP starts, so restart existing clients after changing it.
+For gopls, the setting controls `usePlaceholders`; its LSP snippet capability remains
+enabled so function completion can still insert parentheses.
+
 ## Validation
 
 ```shell
