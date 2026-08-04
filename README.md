@@ -338,7 +338,7 @@ return {
 
 文件名必须与 LSP 客户端名称一致，例如 `gopls.lua`、`vtsls.lua`、`lua_ls.lua` 或 `rust_analyzer.lua`。
 
-另外，你可以进行其他配置，比如当前项目的 `java` 版本低于 `jdtls` 的版本，需要指定 `jdk` 路径，可以给 `jdtls` 指定 JDK 路径，但是需要放到 `.nvim.lua` 下：
+另外，你可以进行其他配置，比如当前项目的 `java` 版本低于 `jdtls` 执行需要的最低版本，可以给 `jdtls` 指定 `JDK` 路径，但是不影响当前项目的执行。此内容需要放到 `.nvim.lua` 下：
 
 ```lua
 --- .nvim.lua
