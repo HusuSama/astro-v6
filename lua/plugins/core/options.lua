@@ -34,6 +34,7 @@ return {
       g = {
         mapleader = " ",
         icons_enabled = true,
+        lsp_snippet_support = { jsonls = true },
         move_key_modifier = "",
         move_key_modifier_visualmode = "S",
         mundo_right = 1,
