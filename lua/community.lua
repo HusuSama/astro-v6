@@ -39,11 +39,11 @@ return {
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.go" },
+  { import = "astrocommunity.pack.golangci-lint" },
   -- { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.thrift" },
   { import = "astrocommunity.pack.prettier" },
-  { import = "astrocommunity.pack.golangci-lint" },
   { import = "astrocommunity.pack.oxlint" },
   -- { import = "astrocommunity.pack.harper" },
   -- { import = "astrocommunity.lsp.ts-error-translator-nvim" },
@@ -111,4 +111,5 @@ return {
   -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   { import = "astrocommunity.ai.opencode-nvim" },
   -- { import = "astrocommunity.media.img-clip-nvim" },
+  { import = "astrocommunity.note-taking.zk-nvim" },
 }
