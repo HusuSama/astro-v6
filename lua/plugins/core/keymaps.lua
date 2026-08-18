@@ -1,16 +1,3 @@
-local function get_selected_text()
-  local start_pos = vim.fn.getpos "'<"
-  local end_pos = vim.fn.getpos "'>"
-  local lines = vim.fn.getline(start_pos[2], end_pos[2])
-  lines[1] = lines[1]:sub(start_pos[3])
-  if #lines == 1 then
-    lines[1] = lines[1]:sub(1, end_pos[3] - start_pos[3] + 1)
-  else
-    lines[#lines] = lines[#lines]:sub(1, end_pos[3])
-  end
-  return table.concat(lines, "\n")
-end
-
 return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
@@ -87,7 +74,6 @@ return {
         ["<C-c>"] = { "y" },
         ["<D-c>"] = { "y" },
         d = { '"_d', desc = "删除而不剪切" },
-        ["<Leader>tt"] = { function() print(get_selected_text()) end, desc = "测试一下" },
       },
       c = {
         ["<C-h>"] = { "<Left>" },
