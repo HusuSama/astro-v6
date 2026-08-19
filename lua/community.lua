@@ -111,5 +111,5 @@ return {
   -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   { import = "astrocommunity.ai.opencode-nvim" },
   -- { import = "astrocommunity.media.img-clip-nvim" },
-  { import = "astrocommunity.note-taking.zk-nvim" },
+  -- { import = "astrocommunity.note-taking.zk-nvim" },
 }
