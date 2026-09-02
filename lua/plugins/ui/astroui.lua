@@ -13,10 +13,10 @@ return {
     opts = {
       -- change colorscheme
       -- colorscheme = "astrodark",
-      -- colorscheme = "everforest",
+      colorscheme = "everforest",
       -- colorscheme = "catppuccin-frappe",
       -- colorscheme = "catppuccin-mocha",
-      colorscheme = "catppuccin-macchiato",
+      -- colorscheme = "catppuccin-macchiato",
       -- colorscheme = "tokyonight",
       -- colorscheme = "nordic",
       -- colorscheme = "kanagawa-lotus",

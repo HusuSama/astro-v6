@@ -17,26 +17,37 @@ end
 local function apply_custom_highlights()
   local theme = vim.g.colors_name or ""
   local hl = {}
-  -- 💠 设置透明补全菜单
-  vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE", blend = 0 }) -- 补全菜单透明
-  vim.api.nvim_set_hl(0, "FloatBorder", { fg = C.ice_white, bg = "NONE" }) -- 边框保留
+  -- 设置透明补全菜单
+  vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE", blend = 0 })
+  vim.api.nvim_set_hl(0, "FloatBorder", { fg = C.ice_white, bg = "NONE" })
 
   for key, value in pairs(hl_map) do
-    -- 如果主题配置的为空table，则直接返回，不继续进行配置
     if theme:find(key) then
-      if vim.tbl_isempty(value) then return end
       hl = value
       break
     end
   end
-  -- 设置默认的补全菜单选中颜色，默认使用 catppuccin 的颜色
-  vim.api.nvim_set_hl(0, "PmenuSel", hl) -- 选中项
+  -- Everforest 不覆盖补全菜单选中色；其他主题使用对应配置。
+  if not vim.tbl_isempty(hl) then vim.api.nvim_set_hl(0, "PmenuSel", hl) end
 
-  -- vim.api.nvim_set_hl(0, "CurSearch", {
-  --   bg = C.mint_cream,
-  --   fg = C.surface0,
-  --   bold = true,
-  -- }) -- 搜索当前项
+  -- Everforest 已提供这些组，但显式链接可确保在禁用状态符号后，
+  -- Neo-tree 的文件名仍按 Git 状态着色。
+  if theme:find "everforest" then
+    local git_highlights = {
+      NeoTreeGitAdded = "Aqua",
+      NeoTreeGitConflict = "Orange",
+      NeoTreeGitDeleted = "Red",
+      NeoTreeGitIgnored = "Grey",
+      NeoTreeGitModified = "Blue",
+      NeoTreeGitRenamed = "Purple",
+      NeoTreeGitStaged = "Aqua",
+      NeoTreeGitUnstaged = "Yellow",
+      NeoTreeGitUntracked = "Yellow",
+    }
+    for group, target in pairs(git_highlights) do
+      vim.api.nvim_set_hl(0, group, { link = target })
+    end
+  end
 end
 
 --- 对于 catppuccin 主题，重新设置一下 flash.nvim 的配色

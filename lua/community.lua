@@ -112,4 +112,5 @@ return {
   { import = "astrocommunity.ai.opencode-nvim" },
   -- { import = "astrocommunity.media.img-clip-nvim" },
   -- { import = "astrocommunity.note-taking.zk-nvim" },
+  --
 }

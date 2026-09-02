@@ -24,6 +24,17 @@ return {
     },
   },
   {
+    "AstroNvim/astrocore",
+    opts = function(_, opts)
+      opts.mappings = opts.mappings or {}
+      opts.mappings.n = opts.mappings.n or {}
+      opts.mappings.n["<Leader>ff"] = {
+        function() require("snacks").picker.files { hidden = true, ignored = true } end,
+        desc = "Find all files",
+      }
+    end,
+  },
+  {
     "AstroNvim/astrolsp",
     ---@param opts AstroLSPOpts
     opts = function(_, opts)
