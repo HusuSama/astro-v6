@@ -45,6 +45,7 @@ return {
   { import = "astrocommunity.pack.thrift" },
   { import = "astrocommunity.pack.prettier" },
   { import = "astrocommunity.pack.oxlint" },
+  { import = "astrocommunity.pack.cpp" },
   -- { import = "astrocommunity.pack.harper" },
   -- { import = "astrocommunity.lsp.ts-error-translator-nvim" },
   -- { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },

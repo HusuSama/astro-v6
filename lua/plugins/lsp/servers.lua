@@ -33,6 +33,13 @@ return {
       end
 
       return astrocore.extend_tbl(opts, {
+        formatting = {
+          format_on_save = {
+            enabled = true,
+            -- markdown 保留手写特殊格式，LSP 保存时也不格式化
+            ignore_filetypes = { "markdown", "markdown.mdx" },
+          },
+        },
         config = {
           gopls = {
             settings = {
