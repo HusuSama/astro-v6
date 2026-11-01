@@ -1,6 +1,7 @@
 return {
   {
     "nickjvandyke/opencode.nvim",
+    optional = true,
     config = function()
       ---@type opencode.Opts
       local opencode_cmd = "opencode --port"
@@ -42,6 +43,7 @@ return {
   {
     "AstroNvim/astrocore",
     opts = function(_, opts)
+      if not require("astrocore").is_available "opencode.nvim" then return end
       local maps = assert(opts.mappings)
       local prefix = "<leader>O"
       maps.v[prefix .. "a"] = {

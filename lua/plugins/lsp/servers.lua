@@ -41,6 +41,12 @@ return {
           },
         },
         config = {
+          powershell_es = {
+            on_attach = function(client, _)
+              -- 规避 PSES 对不完整方括号表达式请求签名帮助时的通配符异常
+              client.server_capabilities.signatureHelpProvider = nil
+            end,
+          },
           gopls = {
             settings = {
               gopls = {

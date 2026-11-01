@@ -1,5 +1,6 @@
 return {
   "mrcjkb/rustaceanvim",
+  optional = true,
   opts = function(_, opts)
     return require("astrocore").extend_tbl(opts, {
       server = {

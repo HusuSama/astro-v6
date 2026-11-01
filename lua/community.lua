@@ -4,6 +4,27 @@
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
 -- This guarantees that the specs are processed before any user plugins.
 
+local function has_command(command) return vim.fn.executable(command) == 1 end
+
+-- 增加环境变量机制，可以临时启用，但是如果安装了，并不会撤销安装
+local function enabled(name, detected)
+  local override = vim.env["NVIM_ENABLE_" .. name]
+  if override == "1" then return true end
+  if override == "0" then return false end
+  return detected
+end
+
+-- 局部变量，用于判断某些命令是否存在，针对性的导入插件
+
+local has_go = enabled("GO", has_command "go")
+local has_cpp = enabled("CPP", has_command "clang++" or has_command "g++" or has_command "cl")
+local has_python = enabled("PYTHON", has_command "python3" or has_command "python")
+local has_java = enabled("JAVA", has_command "java")
+local has_rust = enabled("RUST", has_command "cargo" or has_command "rustup")
+local has_opencode_agent = has_command "opencode"
+local has_git = has_command "git"
+local has_js_runtime = has_command "node" or has_command "bun"
+
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
@@ -22,30 +43,31 @@ return {
   { import = "astrocommunity.colorscheme.rose-pine" },
 
   -- git
-  { import = "astrocommunity.git.blame-nvim" },
+  { import = "astrocommunity.git.blame-nvim", enabled = has_git },
 
   -- lsp
   { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.java", enabled = has_java },
   -- { import = "astrocommunity.lsp.nvim-java" },
-  { import = "astrocommunity.pack.vue" },
-  { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.pack.python.base" },
-  { import = "astrocommunity.pack.python.ty" },
-  { import = "astrocommunity.pack.python.ruff" },
-  { import = "astrocommunity.pack.html-css" },
-  { import = "astrocommunity.pack.tailwindcss" },
-  { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.vue", enabled = has_js_runtime },
+  { import = "astrocommunity.pack.rust", enabled = has_rust },
+  { import = "astrocommunity.pack.python.base", enabled = has_python },
+  { import = "astrocommunity.pack.python.ty", enabled = has_python },
+  { import = "astrocommunity.pack.python.ruff", enabled = has_python },
+  { import = "astrocommunity.pack.html-css", enabled = has_js_runtime },
+  { import = "astrocommunity.pack.tailwindcss", enabled = has_js_runtime },
+  { import = "astrocommunity.pack.typescript", enabled = has_js_runtime },
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.yaml" },
-  { import = "astrocommunity.pack.go" },
-  { import = "astrocommunity.pack.golangci-lint" },
+  { import = "astrocommunity.pack.go", enabled = has_go },
+  { import = "astrocommunity.pack.golangci-lint", enabled = has_go },
   -- { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.thrift" },
   { import = "astrocommunity.pack.prettier" },
   { import = "astrocommunity.pack.oxlint" },
-  { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.cpp", enabled = has_cpp },
+  { import = "astrocommunity.pack.ps1", enabled = vim.fn.has "win32" == 1 },
   -- { import = "astrocommunity.pack.harper" },
   -- { import = "astrocommunity.lsp.ts-error-translator-nvim" },
   -- { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
@@ -110,7 +132,7 @@ return {
 
   { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
   -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
-  { import = "astrocommunity.ai.opencode-nvim" },
+  { import = "astrocommunity.ai.opencode-nvim", enabled = has_opencode_agent },
   -- { import = "astrocommunity.media.img-clip-nvim" },
   -- { import = "astrocommunity.note-taking.zk-nvim" },
   --
