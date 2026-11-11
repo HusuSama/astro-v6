@@ -22,13 +22,20 @@ return {
           function() require("astrocore.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
           desc = "Previous buffer",
         },
-        ["<Leader>fT"] = { "<Cmd>TodoTelescope<CR>", desc = "搜索TODO" },
+        ["<Leader>fT"] = {
+          function()
+            require("lazy").load { plugins = { "todo-comments.nvim" } }
+            require("snacks").picker.todo_comments()
+          end,
+          desc = "搜索TODO",
+        },
         ["<Leader>Tl"] = { "<Cmd>TodoLocList<CR>", desc = "TODO列表" },
         ["<Leader>Tq"] = { "<Cmd>TodoQuickFix<CR>", desc = "TODO快速修复" },
         ["]t"] = { function() require("todo-comments").jump_next() end, desc = "跳到下一个TODO" },
         ["[t"] = { function() require("todo-comments").jump_prev() end, desc = "跳到上一个TODO" },
         ["<C-\\>"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = "Toggle terminal" },
         ["<F7>"] = { "<Cmd>ToggleTerm size=25 direction=horizontal<CR>", desc = "ToggleTerm Harizontal" },
+        ["<Leader>ts"] = { "<Cmd>TermSelect<CR>", desc = "Select terminal" },
         ["<F12>"] = {
           function() vim.notify("aerial.nvim is disabled", vim.log.levels.WARN) end,
           desc = "Find aerial",
@@ -56,7 +63,7 @@ return {
           end,
           desc = "markmap watch",
         },
-        ["<Leader>fj"] = { "<Cmd>Telescope jumplist<CR>", desc = "find jumplist" },
+        ["<Leader>fj"] = { function() require("snacks").picker.jumps() end, desc = "find jumplist" },
       },
       t = {
         ["<Esc><Esc>"] = { "<C-\\><C-n>", desc = "normal mode" },

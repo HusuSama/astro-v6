@@ -13,14 +13,14 @@ return {
     opts = {
       -- change colorscheme
       -- colorscheme = "astrodark",
-      colorscheme = "everforest",
+      -- colorscheme = "everforest",
       -- colorscheme = "catppuccin-frappe",
       -- colorscheme = "catppuccin-mocha",
       -- colorscheme = "catppuccin-macchiato",
       -- colorscheme = "tokyonight",
       -- colorscheme = "nordic",
       -- colorscheme = "kanagawa-lotus",
-      -- colorscheme = "kanagawa-paper-ink",
+      colorscheme = "kanagawa-paper-ink",
       -- colorscheme = "onedark_vivid",
       -- colorscheme = "night-owl",
       -- colorscheme = "palenight",

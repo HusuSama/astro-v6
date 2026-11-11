@@ -80,7 +80,6 @@ return {
 
   -- debug
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
-  { import = "astrocommunity.debugging.telescope-dap-nvim" },
 
   -- editor helper
   -- { import = "astrocommunity.completion.nvim-cmp" },
@@ -130,7 +129,6 @@ return {
 
   { import = "astrocommunity.utility.noice-nvim" },
 
-  { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
   -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   { import = "astrocommunity.ai.opencode-nvim", enabled = has_opencode_agent },
   -- { import = "astrocommunity.media.img-clip-nvim" },
