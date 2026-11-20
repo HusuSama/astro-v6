@@ -32,6 +32,13 @@ return {
         end)
       end
 
+      -- 优先使用与本机 Go 工具链兼容的本地新版，避免调用 Homebrew 中的旧版。
+      local local_linter = vim.fn.expand "~/.local/bin/golangci-lint"
+      local lint_config = opts.config.golangci_lint_ls
+      if vim.fn.executable(local_linter) == 1 and lint_config.init_options and lint_config.init_options.command then
+        lint_config.init_options.command[1] = local_linter
+      end
+
       return astrocore.extend_tbl(opts, {
         formatting = {
           format_on_save = {
