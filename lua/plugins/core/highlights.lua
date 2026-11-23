@@ -60,10 +60,10 @@ local function update_neotree_cursor_highlight(focused)
   -- 使用补全菜单的选中背景色来填充 neo-tree 选中，保持一致性
   local menu_sel_hl = get_hl "PmenuSel"
   if focused then
-    -- vim.api.nvim_set_hl(0, "NeotreeCursorLine", { bg = C.lavender, fg = C.surface0, bold = true })
-    vim.api.nvim_set_hl(0, "NeotreeCursorLine", menu_sel_hl)
+    -- vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = C.lavender, fg = C.surface0, bold = true })
+    vim.api.nvim_set_hl(0, "NeoTreeCursorLine", menu_sel_hl)
   else
-    vim.api.nvim_set_hl(0, "NeotreeCursorLine", get_hl "CursorLine")
+    vim.api.nvim_set_hl(0, "NeoTreeCursorLine", get_hl "CursorLine")
   end
 end
 
