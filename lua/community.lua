@@ -68,6 +68,7 @@ return {
   { import = "astrocommunity.pack.oxlint" },
   { import = "astrocommunity.pack.cpp", enabled = has_cpp },
   { import = "astrocommunity.pack.ps1", enabled = vim.fn.has "win32" == 1 },
+  { import = "astrocommunity.pack.bash", enabled = vim.fn.has "win32" == 0 },
   -- { import = "astrocommunity.pack.harper" },
   -- { import = "astrocommunity.lsp.ts-error-translator-nvim" },
   -- { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
