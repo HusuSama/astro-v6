@@ -44,7 +44,8 @@ return {
           format_on_save = {
             enabled = true,
             -- markdown 保留手写特殊格式，LSP 保存时也不格式化
-            ignore_filetypes = { "markdown", "markdown.mdx" },
+            -- go 交由 conform（gopls）统一格式化，避免保存时重复格式化
+            ignore_filetypes = { "markdown", "markdown.mdx", "go" },
           },
         },
         config = {
