@@ -24,6 +24,8 @@ return {
         signcolumn = "yes",
         wrap = false,
         clipboard = "unnamedplus",
+        grepprg = "rg --vimgrep --smart-case --no-heading $*",
+        grepformat = "%f:%l:%c:%m",
         ignorecase = true,
         autoindent = true,
         iskeyword = extend_iskeyword "-",
