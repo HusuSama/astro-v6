@@ -1,13 +1,13 @@
 # Neovim 配置说明
 
-这是一套基于 [AstroNvim](https://astronvim.com/) **v6** 的个人 Neovim 配置，使用 Lazy.nvim 管理插件，并通过 AstroCommunity 组合语言、调试、测试、编辑和界面能力。
+这是一套基于 [AstroNvim](https://astronvim.com/) **v7** 的个人 Neovim 配置，使用 Lazy.nvim 管理插件，并通过 AstroCommunity 组合语言、调试、测试、编辑和界面能力。
 
 当前版本在 `lua/lazy_setup.lua` 中固定为：
 
 ```lua
 {
   "AstroNvim/AstroNvim",
-  version = "^6",
+  version = "^7",
   import = "astronvim.plugins",
 }
 ```
@@ -16,7 +16,7 @@
 
 ```text
 init.lua                    启动 Lazy.nvim 并加载主配置
-lua/lazy_setup.lua          AstroNvim v6、Leader 键和插件入口
+lua/lazy_setup.lua          AstroNvim v7、Leader 键和插件入口
 lua/community.lua           AstroCommunity 语言包与插件模块
 lua/plugins/init.lua        按类别导入自定义插件配置
 lua/plugins/core/           选项、快捷键、自动命令、界面基础配置
