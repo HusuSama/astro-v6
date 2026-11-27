@@ -131,7 +131,7 @@ return {
   { import = "astrocommunity.utility.noice-nvim" },
 
   -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
-  { import = "astrocommunity.ai.opencode-nvim", enabled = has_opencode_agent },
+  -- { import = "astrocommunity.ai.opencode-nvim", enabled = has_opencode_agent },
   -- { import = "astrocommunity.media.img-clip-nvim" },
   -- { import = "astrocommunity.note-taking.zk-nvim" },
   --
